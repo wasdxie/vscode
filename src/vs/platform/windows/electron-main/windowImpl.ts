@@ -763,7 +763,7 @@ export class CodeWindow extends BaseWindow implements ICodeWindow {
 	private async onWindowError(error: WindowError.PROCESS_GONE, details: { reason: string; exitCode: number }): Promise<void>;
 	private async onWindowError(error: WindowError.LOAD, details: { reason: string; exitCode: number }): Promise<void>;
 	private async onWindowError(type: WindowError, details?: { reason?: string; exitCode?: number }): Promise<void> {
-
+		this.logService.error(`ruyi:onWindowError`);
 		switch (type) {
 			case WindowError.PROCESS_GONE:
 				this.logService.error(`CodeWindow: renderer process gone (reason: ${details?.reason || '<unknown>'}, code: ${details?.exitCode || '<unknown>'})`);
